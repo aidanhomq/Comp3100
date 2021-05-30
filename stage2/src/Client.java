@@ -136,6 +136,13 @@ public class Client {
                     
                 } 
             }
+
+            if(s.core >= core && s.mem >=mem && s.disk>=disk && s.state == 0){
+                if(tempTwo == null){
+                    tempTwo =s;
+                }
+            
+            }
         }
     }
 
