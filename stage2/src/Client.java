@@ -131,17 +131,20 @@ public class Client {
         for(Server s:temp_server){
             if(s.state ==1 || s.state ==2 ||s.state == 3){
                 if(s.core >= core && s.mem >=mem && s.disk>=disk){
-                        tempOne = s;
-                        break;
-                    
+                    tempOne = s;
+                    break;    
                 } 
             }
 
             if(s.core >= core && s.mem >=mem && s.disk>=disk && s.state == 0){
                 if(tempTwo == null){
                     tempTwo =s;
-                }
-            
+                } 
+            }
+
+            if (s.wJobs < countWaitJobs){
+                countWaitJobs = s.wJobs;
+                tempThree = s;    
             }
         }
     }
