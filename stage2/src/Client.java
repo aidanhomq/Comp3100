@@ -7,13 +7,10 @@ public class Client {
     private static String HELO = "HELO";
     private static String AUTH = "AUTH";
     private static String REDY = "REDY";
-    // private static String NONE = "NONE";
     private static String OK = "OK";
     private static String GET = "GETS ";
     private static String SCHD = "SCHD";
     private static String QUIT = "QUIT";
-    // private static int runs =0;
-    // private static String bigboy;
 
     DataInputStream din;
     DataOutputStream dout;
@@ -108,7 +105,7 @@ public class Client {
             switch (resFields[0]) {
                 case "JOBN":
                     globalJobId = Integer.parseInt(resFields[2]);
-                    ArrayList<Server> servers = command_get("Capable " + resFields[4] +" "+resFields[5] +" "+ resFields[6]); 
+                    servers = command_get("Capable " + resFields[4] +" "+resFields[5] +" "+ resFields[6]); 
                     Server costReductionServer=CostReduction(servers, Integer.parseInt(resFields[4]), Integer.parseInt(resFields[5]), Integer.parseInt(resFields[6]));
                     command_schd(costReductionServer.serverType, costReductionServer.serverID);
                     break;
@@ -147,14 +144,16 @@ public class Client {
                 tempThree = s;    
             }
 
-            if(tempOne != null){
-                return tempOne;
-            }else if(tempTwo != null){
-                return tempTwo;
-            }else{
-                return tempThree;
-            }
 
+
+        }
+
+        if(tempOne != null){
+            return tempOne;
+        }else if(tempTwo != null){
+            return tempTwo;
+        }else{
+            return tempThree;
         }
     }
 
