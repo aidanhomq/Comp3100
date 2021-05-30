@@ -40,3 +40,11 @@ public class Server{
         this.rJobs = Integer.parseInt(rJobs);
     }
 }
+
+
+class sortServer implements Comparator<Server>{
+    public int compare (Server a, Server b){
+
+
+    }
+}
