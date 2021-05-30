@@ -146,6 +146,15 @@ public class Client {
                 countWaitJobs = s.wJobs;
                 tempThree = s;    
             }
+
+            if(tempOne != null){
+                return tempOne;
+            }else if(tempTwo != null){
+                return tempTwo;
+            }else{
+                return tempThree;
+            }
+
         }
     }
 
