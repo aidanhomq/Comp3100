@@ -23,6 +23,8 @@ public class Client {
 
     int globalJobId;
 
+    ArrayList<Server> servers;
+
     public Client(){
         try {
             s = new Socket ("127.0.0.1", 50000);
@@ -75,11 +77,8 @@ public class Client {
         int numLines = Integer.parseInt(dataFields[1]);
         send(OK);
 
-        // String response = readBuf();
-        // send(OK);
 
         ArrayList<Server> serverList = new ArrayList<Server>();
-        // String[] serverString = response.split("\n");
         for (int i =0; i <numLines; i++) {
             str = readBuf();
             String[] serverData = str.split(" ");
@@ -89,9 +88,8 @@ public class Client {
         send(OK);
         readBuf();
 
-        // Collections.sort(serverList, new sortServer());
+        Collections.sort(serverList, new sortServer());
         
-        // Collections.reverse(serverList);
         return serverList;
     }
 
@@ -111,7 +109,8 @@ public class Client {
                 case "JOBN":
                     globalJobId = Integer.parseInt(resFields[2]);
                     ArrayList<Server> servers = command_get("Capable " + resFields[4] +" "+resFields[5] +" "+ resFields[6]); 
-                    command_schd(servers.get(0).serverType, servers.get(0).serverID );
+                    Server costReductionServer=CostReduction(servers, Integer.parseInt(resFields[4]), Integer.parseInt(resFields[5]), Integer.parseInt(resFields[6]));
+                    command_schd(costReductionServer.serverType, costReductionServer.serverID);
                     break;
                 case "JCPL": 
                     break;
@@ -120,6 +119,10 @@ public class Client {
 
             } 
         }
+    }
+
+    private Server CostReduction (ArrayList<Server> temp_server, int core, int mem, int disk){
+        
     }
 
     private void quit(){
