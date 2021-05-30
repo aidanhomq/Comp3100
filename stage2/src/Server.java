@@ -1,6 +1,7 @@
 import java.util.*;
 
-public class Server{
+//Holds Server Information
+public class Server{  
     String serverType;
     int serverID;
     int state; 
@@ -11,11 +12,12 @@ public class Server{
     int wJobs;
     int rJobs;
 
+    //Server Constructor
     public Server(String serverType,String serverID,String state ,String curStartTime
                     ,String core,String mem,String disk,String wJobs,String rJobs ){
         this.serverType = serverType;
         this.serverID = Integer.parseInt(serverID);
-        switch (state){
+        switch (state){ //Switch statement to give state value integer values
             case "inactive":
                 this.state =0;
                 break;
@@ -41,7 +43,10 @@ public class Server{
     }
 }
 
-
+//Comparator provides static method for sorting the elements of a collection
+//The collection being the ServerList information 
+//It will compare the first object with the second object being cores
+//Returning a negative value, the list will sort by ascending order of cores
 class sortServer implements Comparator<Server>{
     public int compare (Server a, Server b){
 
