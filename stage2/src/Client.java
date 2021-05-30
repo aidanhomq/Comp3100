@@ -122,7 +122,11 @@ public class Client {
     }
 
     private Server CostReduction (ArrayList<Server> temp_server, int core, int mem, int disk){
-        
+        int countWaitJobs = Integer.MAX_VALUE;
+
+        Server tempOne = null;
+        Server tempTwo = null;
+        Server tempThree = null;
     }
 
     private void quit(){
