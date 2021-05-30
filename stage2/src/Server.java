@@ -45,6 +45,8 @@ public class Server{
 class sortServer implements Comparator<Server>{
     public int compare (Server a, Server b){
 
+        int result = a.core - b.core;
 
+        return result;
     }
 }
