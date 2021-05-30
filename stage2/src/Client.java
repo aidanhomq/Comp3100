@@ -127,6 +127,16 @@ public class Client {
         Server tempOne = null;
         Server tempTwo = null;
         Server tempThree = null;
+
+        for(Server s:temp_server){
+            if(s.state ==1 || s.state ==2 ||s.state == 3){
+                if(s.core >= core && s.mem >=mem && s.disk>=disk){
+                        tempOne = s;
+                        break;
+                    
+                } 
+            }
+        }
     }
 
     private void quit(){
